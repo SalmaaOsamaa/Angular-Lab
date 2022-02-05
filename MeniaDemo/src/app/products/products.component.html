@@ -1,0 +1,55 @@
+<h1>
+  {{ storeName }}
+</h1>
+
+<!--Question 1 lab day 2-->
+<h3 *ngIf="discount != 'No Discount'">
+  offering a discount of: {{ discount | percent }}
+</h3>
+
+<!--Question 2-->
+<select name="categoryList" id="">
+  <option value=""></option>
+  <option *ngFor="let c of categoryList">{{ c.ID }} {{ c.name }}</option>
+  <option *ngFor="let c of categoryList">{{ c.ID }} {{ c.name }}</option>
+</select>
+
+<!--Question 3 -->
+
+<ng-template #productstable>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>name</th>
+      <th>quantity</th>
+      <th>price</th>
+      <th>Image</th>
+    </tr>
+    <tr *ngFor="let p of productList">
+      <td>{{ p.ID }}</td>
+      <td>{{ p.name }}</td>
+      <td>{{ p.Quantity }}</td>
+      <td>{{ p.price }}</td>
+      <td><img class="td-img" src=" {{ p.Img }} " alt="" /></td>
+    </tr>
+    <tr *ngFor="let p of productList">
+      <td>{{ p.ID }}</td>
+      <td>{{ p.name }}</td>
+      <td>{{ p.Quantity }}</td>
+      <td>{{ p.price }}</td>
+      <td><img class="td-img" src=" {{ p.Img }} " alt="" /></td>
+    </tr>
+  </table>
+</ng-template>
+
+<!--Question 4-->
+<input type="text" [(ngModel)]="clientName" />
+Hello {{ clientName }}
+
+<!--question 5-->
+<br />
+<button (click)="onPurchase()" class="btn btn-warning">Buy now</button>
+
+<div *ngIf="isPurchased; else productstable">
+  {{ "Thank you for purchasing from us," + clientName }}
+</div>
