@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {DiscountOffers} from '../../app/SharedClassesandtypes/discountOffers';
 import {Icategory} from '../../app/SharedClassesandtypes/Icategory';
 import {Iproduct} from '../../app/SharedClassesandtypes/Iproducts';
+import { ServiceService } from './service.service';
 
 @Component({
   selector: 'app-products',
@@ -17,26 +18,27 @@ export class ProductsComponent implements OnInit {
  clientName :string;
  isPurchased :boolean;
 
-  constructor() { 
+  constructor( private productService:ServiceService ) { 
+    
     this.discount=DiscountOffers.tenPercent;
     this.storeName='OxfordLibrary';
     this.storeLogo='OX';
     this.productList = [
-      {
-        ID: 1,
-        name:'The catcher in the rye',
-        Quantity:20,
-        price:50,
-        Img:"../../assets/images/81OthjkJBuL.jpg",
+      // {
+      //   ID: 1,
+      //   name:'The catcher in the rye',
+      //   Quantity:20,
+      //   price:50,
+      //   Img:"../../assets/images/81OthjkJBuL.jpg",
 
-      } ,
-      {
-        ID:2,
-        name:'Torn',
-        Quantity:30,
-        price:120,
-        Img:"../../assets/images/sad-romance-kindle-book-cover-flyer-template-539b5fdf2dd2f6602c25ce81fbb5d877_screen.jpg",
-      }
+      // } ,
+      // {
+      //   ID:2,
+      //   name:'Torn',
+      //   Quantity:30,
+      //   price:120,
+      //   Img:"../../assets/images/sad-romance-kindle-book-cover-flyer-template-539b5fdf2dd2f6602c25ce81fbb5d877_screen.jpg",
+      // }
     ];
     this.categoryList=[
       {
@@ -52,6 +54,12 @@ export class ProductsComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.productList = this.productService.getProducts();
+    
+
+  }
+   renderVals(){
+   return this.productService.getProducts();
   }
   onPurchase(){
     
