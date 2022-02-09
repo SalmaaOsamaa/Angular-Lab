@@ -15,6 +15,9 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import {HttpClientModule} from '@angular/common/http';
+import { UserComponent } from './user/user.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -30,6 +33,9 @@ import {HttpClientModule} from '@angular/common/http';
     
     HomeComponent,
     ProductsComponent,
+    UserComponent,
+    PageNotFoundComponent,
+    RegisterComponent,
     
     
   ],
