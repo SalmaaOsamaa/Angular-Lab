@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 
 import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 
@@ -35,7 +36,8 @@ import { ProductsComponent } from './products/products.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
